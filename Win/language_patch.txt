@@ -1,0 +1,9 @@
+在 WndProc 函数的 WM_COMMAND 消息处理部分添加以下代码：
+
+case IDM_LANGUAGE_ENGLISH:
+    SwitchLanguage(hWnd, LANGUAGE_ENGLISH);
+    break;
+
+case IDM_LANGUAGE_CHINESE:
+    SwitchLanguage(hWnd, LANGUAGE_CHINESE);
+    break;

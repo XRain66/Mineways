@@ -44,6 +44,7 @@ THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+#include "language.h"
 
 // Should really make a full-featured error system, a la https://www.softwariness.com/articles/assertions-in-cpp/, but this'll do for now.
 // trick so that there is not a warning that there's a constant value being tested by an "if"
@@ -1993,23 +1994,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     }
                     else
                     {
-                        // no user-defined scheme found, must be Standard
-                        useCustomColor(IDM_CUSTOMCOLOR, hWnd);
-                    }
+                    // no user-defined scheme found, must be Standard
+                    useCustomColor(IDM_CUSTOMCOLOR, hWnd);
                 }
             }
-            break;
-            case IDM_CLOSE:
+        }
+        break;
+        case IDM_CLOSE:
 #ifdef SKETCHFAB
-                deleteFile();
+            deleteFile();
 #endif
-                DestroyWindow(hWnd);
-                break;
-            case IDM_TEST_WORLD:
-                gWorldGuide.world[0] = 0;
-                gSameWorld = FALSE;
+            DestroyWindow(hWnd);
+            break;
+        case IDM_LANGUAGE_ENGLISH:
+            SwitchLanguage(hWnd, LANGUAGE_ENGLISH);
+            break;
+        case IDM_LANGUAGE_CHINESE:
+            SwitchLanguage(hWnd, LANGUAGE_CHINESE);
+            break;
+        case IDM_TEST_WORLD:
+            gWorldGuide.world[0] = 0;
+            gSameWorld = FALSE;
 #ifdef SKETCHFAB
-                sprintf_s(gSkfbPData.skfbName, "TestWorld");
+            sprintf_s(gSkfbPData.skfbName, "TestWorld");
 #endif
                 gotoSurface(hWnd, hwndSlider, hwndLabel);
                 gWorldGuide.type = WORLD_TEST_BLOCK_TYPE;

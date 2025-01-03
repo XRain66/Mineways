@@ -1,0 +1,15 @@
+{{ ... }}
+            case IDM_CLOSE:
+#ifdef SKETCHFAB
+                deleteFile();
+#endif
+                DestroyWindow(hWnd);
+                break;
+            case IDM_LANGUAGE_ENGLISH:
+                SwitchLanguage(hWnd, LANGUAGE_ENGLISH);
+                break;
+            case IDM_LANGUAGE_CHINESE:
+                SwitchLanguage(hWnd, LANGUAGE_CHINESE);
+                break;
+            case IDM_TEST_WORLD:
+{{ ... }}
