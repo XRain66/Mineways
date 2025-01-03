@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "language.h"
 #include "resource.h"
 #include <commctrl.h>
